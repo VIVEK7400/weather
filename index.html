@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Weather App</title>
+</head>
+<body>
+    
+    <div class="app-main">
+        <div class="searchInputBox">
+            <input type="text" id="input-box" class="input-box" placeholder="Enter city name..." autocomplete="off">
+        </div>
+
+        <div class="weather-body">
+            <div class="location-details">
+                <div class="city" id="city">---------</div>
+                <div class="date" id="date">---------</div>
+            </div>
+
+            <div class="weather-status">
+                <div class="temp" id="temp">---&deg;C</div>
+                <div class="min-max" id="min-max">---deg;C (min) / ---&deg;C (max)</div>
+                <div class="weather" id="weather">---</div>
+                <div id="img"></div>
+            </div>
+        </div>
+        
+    </div>
+    <!--<center><button class="btn btn-danger" onclick="logout()">Logout</button></center>-->
+    <script src="welcome.js"></script>
+    <script src="app.js"></script>
+</body>
+<script>
+    firebase.auth().onAuthStateChanged((user)=>{
+    if(!user){
+        location.replace("index.html")
+    }else{
+        document.getElementById("user").innerHTML = "Hello, "+user.email
+    }
+})
+
+
+function logout(){
+    firebase.auth().signOut()
+}
+
+</script>
+</html>
