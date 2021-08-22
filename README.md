@@ -1,4 +1,4 @@
-# Weather App in Vanilla Javascript
+# Weather App in Vivek Javascript
 
 This is a cool weather app made in vanilla (pure) Javascript.
 
