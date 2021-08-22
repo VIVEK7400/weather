@@ -1,1 +1,1 @@
-# Weather App in Vivek Javascript
+# Weather App in Javascript
